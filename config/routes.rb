@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :items
+  resources :categories
+  resources :orders
+  # Add other resources here
+
+  root 'items#index' # Set your root route to an appropriate controller/action
 end
