@@ -131,6 +131,13 @@
 .coffee_section {
   width: 100%;
   float: left;
+  background-color: #ffffff;
+}
+.main_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20vh;
 }
 
 .coffee_taital {

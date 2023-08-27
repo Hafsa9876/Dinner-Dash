@@ -1,20 +1,20 @@
      <div class="header_bg ">
          <div class="container-fluid">
             <nav class="navbar header_bg navbar-expand-lg navbar-light">
-               <a class="navbar-brand"href="index.html"><%=image_tag "logo.png" %></a>
+               <a class="navbar-brand"href=<%=items_path %>><%=image_tag "logo.png" %></a>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href=<%=items_path %>>Home</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href=<%=login_path%>>Login</a>
                      </li>
                      <li class="nav-item active">
-                        <a class="nav-link" href="coffees.html">Coffees</a>
+                        <a class="nav-link" href=<%= new_user_path%>>SignUp</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="shop.html">Shop</a>
@@ -29,8 +29,8 @@
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_bt">
                         <ul>
-                           <li><a href="#"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
-                           <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                           <li><a href='#'><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
+                           <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></span>Search</a></li>
                         </ul>
                      </div>
                   </form>
@@ -40,7 +40,7 @@
       </div>
 
 <div class="coffee_section layout_padding">
-   <div class="container">
+   <div class="main_container">
       <div class="row">
          <h1 class="coffee_taital">OUR Menue OFFER</h1>
          <div class="bulit_icon"><%= image_tag "bulit-icon.png" %></div>
@@ -51,15 +51,14 @@
       <div class="row ">
          <% @items.each do |item| %>
             <div class="col-lg-4 col-md-6 col-sm-6">
-               <a href="<%= item_path(item) %>">
                <div class="coffee_item">
-                  <div class="coffee_img img">
+                 <a href="<%= item_path(item) %>" class="coffee_img img">
                      <% if item.photo.attached? %>
                         <%= image_tag item.photo, class: "card-img-top img-fluid" %>
                      <% else %>
                         <%= image_tag "default.png", class: "card-img-top img-fluid" %>
                      <% end %>
-                  </div>
+                  </a>
                   <h3 class="types_text"><%= item.title %></h3>
                   <p class="looking_text"><%= item.description %></p>
                   <div class="read_bt">
