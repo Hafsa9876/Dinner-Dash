@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'order/index'
+  get 'order/show'
+  get 'order/new'
+  get 'order/edit'
+  get 'order/create'
+  get 'order/update'
+  get 'order/destroy'
   resources :items
   resources :categories
   resources :orders

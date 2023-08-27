@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  before_action :check_if_admin, only: [:destroy]
-  def index
-  end
   def new
     @user = User.new
   end

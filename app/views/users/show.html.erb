@@ -1,4 +1,26 @@
-<h1>User Profile</h1>
-<p><strong>Name:</strong> <%= @user.full_name %></p>
-<p><strong>Email:</strong> <%= @user.email %></p>
-<p><strong>Display Name:</strong> <%= @user.display_name %></p>
+
+<div class="item_section layout_padding">
+<div class="container sh-container " >
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="coffee_taital"><%= @user.full_name %></h1>
+        <div class="bulit_icon"><%=image_tag "bulit-icon.png"%></div>
+      </div>
+    </div>
+
+
+<div class="item_taital_main">
+        <div class="item_right">
+          <h3 class="moark_text text-center"><%= @user.display_name %></h3>
+          <p class="item_text text-center">Email : <%=@user.email %>
+          </div>
+ </div>
+ <div class="read_bt">
+      <a class="add-to-cart-button" href="<%=users_path %>">Back</a>
+  <div>
+
+</div>
+
+
+
+
