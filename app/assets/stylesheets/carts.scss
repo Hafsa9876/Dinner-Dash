@@ -1,3 +1,14 @@
 // Place all the styles related to the Carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: palevioletred;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(243, 173, 196),rgb(235, 93, 140));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(245, 199, 214), rgb(243, 117, 159));
+  }

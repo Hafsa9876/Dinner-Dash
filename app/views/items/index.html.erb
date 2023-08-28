@@ -27,7 +27,7 @@
                      <% end %>
 
                      <li class="nav-item">
-                        <a class="nav-link" href="#">Cart</a>
+                        <a class="nav-link" href="<%=cart_path(@current_cart) %>">Cart</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="#">Search</a>
@@ -64,7 +64,7 @@
                   <h3 class="types_text"><%= item.title %></h3>
                   <p class="looking_text"><%= item.description %></p>
                   <div class="read_bt">
-                    <a class="add-to-cart-button" href="#">Add To Cart</a>
+                    <%= button_to "Add To Cart", order_items_path(item_id: item.id), method: :post, class: "add-to-cart-button" %>
                   </div>
                </div>
             </div>

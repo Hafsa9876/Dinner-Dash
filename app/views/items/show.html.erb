@@ -27,7 +27,7 @@
           </div>
  </div>
  <div class="read_bt">
-      <a class="add-to-cart-button" href="#">Add To Cart</a>
+   <%= button_to "Add To Cart", order_items_path(item_id: @item.id), method: :post, class: "add-to-cart-button" %>
    </div>
 
 </div>

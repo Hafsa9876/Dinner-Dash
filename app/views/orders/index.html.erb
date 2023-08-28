@@ -1,0 +1,13 @@
+<h2>All Orders</h2>
+
+<% @orders.each do |order| %>
+  <p>Order Id: <%= order.id %></p>
+  <p>Customer : <%=order.user.full_name%></p>
+  <p>Status : <%=order.status%></p>
+  <p>Order Items: </p>
+  <ul>
+    <% order.order_items.each do |orderitem| %>
+    <li><%= orderitem.quantity %> x <%= orderitem.item.title %></li>
+    <% end %>
+  </ul>
+<% end%>

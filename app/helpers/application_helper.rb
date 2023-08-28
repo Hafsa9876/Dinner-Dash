@@ -9,6 +9,7 @@ module ApplicationHelper
 
   end
   def log_out
-
+    session[:user_id] = nil
+    session[:cart_id] = nil
   end
 end
