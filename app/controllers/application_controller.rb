@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 class ApplicationController < ActionController::Base
   include ApplicationHelper
+  include Pundit::Authorization
   protect_from_forgery with: :exception
 
   before_action :current_cart
@@ -22,4 +23,6 @@ class ApplicationController < ActionController::Base
         session[:cart_id] = @current_cart.id
       end
     end
+
+
 end
