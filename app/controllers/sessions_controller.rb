@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class SessionsController < ApplicationController
   def create
     #puts params[:session]
@@ -11,7 +12,6 @@ class SessionsController < ApplicationController
       render "login"
     end
   end
-
 
   def destroy
       session.delete(:user_id)

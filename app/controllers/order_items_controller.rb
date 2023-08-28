@@ -1,6 +1,5 @@
+# frozen_string_literal: true
 class OrderItemsController < ApplicationController
-
-
 
   def create
     chosen_item = Item.find(params[:item_id])

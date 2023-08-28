@@ -47,7 +47,6 @@
   border: 1px solid #3b3b3b;
 }
 
-/* This rule targets the "Add To Cart" button only */
 .add-to-cart-button {
   width: 100%;
   float: left;
@@ -160,10 +159,10 @@
   padding-top: 40px;
 }
 .image-container {
-  width: 300px; /* Example width */
-  height: 200px; /* Example height */
+  width: 300px;
+  height: 200px;
   border: 1px solid #ccc;
-  overflow: hidden; /* Hide any overflowing content */
+  overflow: hidden;
 }
 
 .coffee_item{
