@@ -1,0 +1,35 @@
+<!-- app/views/items/index.html.erb -->
+
+<%= render "shared/header" %>
+<div class="coffee_section layout_padding">
+   <div class="main_container">
+      <div class="row">
+         <h1 class="coffee_taital">OUR Menue OFFER</h1>
+         <div class="bulit_icon"><%= image_tag "bulit-icon.png" %></div>
+      </div>
+   </div>
+
+   <div class="container">
+      <div class="row ">
+         <% @items.each do |item| %>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+               <div class="coffee_item">
+                 <a href="<%= item_path(item) %>" class="coffee_img img">
+                     <% if item.photo.attached? %>
+                        <%= image_tag item.photo, class: "card-img-top img-fluid" %>
+                     <% else %>
+                        <%= image_tag "default.png", class: "card-img-top img-fluid" %>
+                     <% end %>
+                  </a>
+                  <h3 class="types_text"><%= item.title %></h3>
+                  <p class="looking_text"><%= item.description %></p>
+                  <div class="read_bt">
+                    <%= button_to "Add To Cart", order_items_path(item_id: item.id), method: :post, class: "add-to-cart-button" %>
+                  </div>
+               </div>
+            </div>
+         <% end %>
+      </div>
+   </div>
+</div>
+

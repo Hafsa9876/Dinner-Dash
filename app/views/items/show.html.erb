@@ -1,0 +1,37 @@
+<!-- app/views/items/show.html.erb -->
+
+<%= render "shared/header" %>
+<div class="item_section layout_padding">
+<div class="container sh-container " >
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="coffee_taital"><%= @item.title %></h1>
+        <div class="bulit_icon"><%=image_tag "bulit-icon.png"%></div>
+      </div>
+    </div>
+
+
+<div class="item_taital_main">
+        <div class="item_left">
+          <div class="item_img">
+            <% if @item.photo.attached? %>
+                        <%= image_tag @item.photo, class: "card-img-top img-fluid" %>
+                     <% else %>
+                        <%= image_tag "default.png", class: "card-img-top img-fluid" %>
+                     <% end %>
+          </div>
+        </div>
+        <div class="item_right">
+          <h3 class="moark_text"><%= number_to_currency(@item.price, unit: 'PKR ',format: "%u %n", precision: 2) %></h3>
+          <p class="item_text"><p><%= @item.description %></p>
+          </div>
+ </div>
+ <div class="read_bt">
+   <%= button_to "Add To Cart", order_items_path(item_id: @item.id), method: :post, class: "add-to-cart-button" %>
+   </div>
+
+</div>
+
+
+
+

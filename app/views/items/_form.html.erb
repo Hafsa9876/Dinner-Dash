@@ -1,0 +1,19 @@
+<!-- app/views/items/_form.html.erb -->
+
+<%= form_for(item) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

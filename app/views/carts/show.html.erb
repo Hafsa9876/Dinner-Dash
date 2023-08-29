@@ -1,0 +1,59 @@
+
+<div class="login_container">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center my-4">
+      <div class="col-md-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <% @cart.order_items.each do |order_item| %>
+            <div class="row">
+              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                     <% if order_item.item.photo.attached? %>
+                        <%= image_tag order_item.item.photo, class: "card-img-top img-fluid" %>
+                     <% else %>
+                        <%= image_tag "default.png", class: "card-img-top img-fluid" %>
+                     <% end %>
+                </div>
+              </div>
+
+              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                <p><strong><%= order_item.item.title %></strong></p>
+              <%= link_to "Remove item", order_item_path(order_item), method: :delete ,class: "add-to-cart-button"%>
+                <p class="text-center text-md-center">
+                   Price :
+                  <strong><%= number_to_currency(order_item.item.price) %></strong>
+                </p>
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+              <div class="d-flex mb-4" style="max-width: 300px">
+                <%= link_to order_items_add_path(order_item), method: :post, remote: true, class: "btn btn-primary px-3 me-2" do %>
+                  <h1><%="+"%></h1>
+                <% end %>
+
+                <div class="form-outline">
+                  <input id="form1" min="0" name="quantity" value="<%= order_item.quantity %>" type="number" class="form-control" />
+                  <label class="form-label" for="form1">Quantity</label>
+                </div>
+
+                <%= link_to order_items_reduce_path(order_item), method: :post, remote: true, class: "btn btn-primary px-3 me-2" do %>
+                  <h1><%="-"%></h1>
+                <% end %>
+              </div>
+              </div>
+            </div>
+            <%end%>
+          </div>
+        </div>
+
+      </div>
+            <div class="col-md-4">
+            <p><strong>Total Price :  <%= number_to_currency(@cart.sub_total) %></strong></p>
+            <%= button_to "Empty Cart ", cart_path(@current_cart),method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-primary btn-lg btn-block" %><br>
+            <%= button_to "Checkout Now", orders_path, method: :post, class: "btn btn-primary btn-lg btn-block" %>
+            </div>
+
+    </div>
+  </div>
+</div>
