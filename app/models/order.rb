@@ -5,6 +5,7 @@ class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :items, through: :order_items
   validate :has_items, on: :create
+  validates :status, inclusion: { in: ["ordered", "paid", "cancelled", "completed"] }
   private
 
   def has_items

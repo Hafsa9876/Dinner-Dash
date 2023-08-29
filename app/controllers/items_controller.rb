@@ -34,6 +34,11 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def search
+    category_name = params[:category]
+    @items = Item.joins(:categories).where(categories: { name: category_name })
+  end
+
   private
     def item_params
       params.require(:item).permit(:title, :description, :price, :photo)

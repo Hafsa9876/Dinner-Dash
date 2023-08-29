@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   include Pundit::Authorization
   protect_from_forgery with: :exception
-
-  before_action :current_cart
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  before_action :current_cart,:set_categories
 
   private
     def current_cart
@@ -24,5 +24,13 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def set_categories
+      @categories = Category.all
+    end
+
+    def user_not_authorized
+      flash[:alert] = "You are not authorized to perform this action."
+      redirect_to(request.referer || root_path)
+    end
 
 end

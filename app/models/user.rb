@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_secure_password 
+  has_secure_password
 
   before_save { self.email = email.downcase }
   validates :full_name,  presence: true, length: { maximum: 100 }
@@ -11,8 +11,10 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }, allow_blank: true
 
-
-  has_many :orders, dependent: :destroy
   enum role_enum: { customer: 0, admin: 1 }
+  has_many :orders, dependent: :destroy
 
+  def admin?
+    role == 1
+  end
 end

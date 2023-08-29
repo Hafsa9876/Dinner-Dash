@@ -14,7 +14,6 @@ category5 = Category.create(name: 'Beverages')
 
 
 
-# Create items with categories
 item1 = Item.create(title: 'Item 1', description: 'Description for Item 1', price: 10)
 item1.photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'img-1.jpg')), filename: 'f1.jpg', content_type: 'image/jpeg')
 ItemCategory.create(item: item1, category: category1)
@@ -46,19 +45,6 @@ item8 = Item.create(title: 'Item 3', description: 'Description for Item 3', pric
 item8.photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'img-2.jpg')), filename: 'f1.jpg', content_type: 'image/jpeg')
 ItemCategory.create(item: item3, category: category1)
 
-
-
-
-
-
-
-
-
-
-
-# ... create more items
-
-# Create users
 user1 = User.create(full_name: 'Rachel Warbelow', email: 'demo+rachel@jumpstartlab.com', password_digest: 'password')
 user2 = User.create(full_name: 'Jeff Casimir', email: 'demo+jeff@jumpstartlab.com', password_digest: 'password', display_name: 'j3')
 user3 = User.create(full_name: 'Jorge Tellez', email: 'demo+jorge@jumpstartlab.com', password_digest: 'password', display_name: 'novohispano')

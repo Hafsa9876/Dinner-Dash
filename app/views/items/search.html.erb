@@ -1,13 +1,4 @@
-<!-- app/views/items/index.html.erb -->
-<%= render "shared/header" %>
-<div class="coffee_section layout_padding">
-   <div class="main_container">
-      <div class="row">
-         <h1 class="coffee_taital">OUR Menue OFFER</h1>
-         <div class="bulit_icon"><%= image_tag "bulit-icon.png" %></div>
-      </div>
-   </div>
-
+  <%= render "shared/header" %>
    <div class="container">
       <div class="row ">
          <% @items.each do |item| %>
@@ -30,5 +21,3 @@
          <% end %>
       </div>
    </div>
-</div>
-
