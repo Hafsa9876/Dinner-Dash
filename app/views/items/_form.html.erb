@@ -1,5 +1,4 @@
 <!-- app/views/items/_form.html.erb -->
-
 <%= form_for(item) do |f| %>
   <div>
     <%= f.label :name %>
@@ -14,6 +13,12 @@
     <%= f.number_field :price %>
   </div>
   <div>
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
+  </div>
+  <div>
     <%= f.submit %>
   </div>
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  <%= f.submit %>
 <% end %>

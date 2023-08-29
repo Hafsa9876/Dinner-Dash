@@ -1,0 +1,22 @@
+<!-- app/views/users/edit.html.erb -->
+
+<h1>Edit User</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :full_name %>
+  <%= f.text_field :full_name %>
+
+  <%= f.label :display_name %>
+  <%= f.text_field :display_name %>
+
+  <%= f.label :role %>
+  <%= f.select :role, options_for_select(User.roles.keys.to_a) %>
+
+  <%= f.submit "Update User" %>
+<% end %>

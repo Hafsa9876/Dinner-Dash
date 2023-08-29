@@ -31,6 +31,7 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+    authorize @order
     status_name = params[:status]
     if @order.update(status: status_name)
       flash[:notice] = "Order status updated successfully."
@@ -38,7 +39,6 @@ class OrdersController < ApplicationController
     else
       render :edit
     end
-    authorize @order
   end
 
   def create
@@ -62,9 +62,9 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
+    authorize @order
     @order.destroy
     flash[:notice] = "Order deleted successfully."
-    authorize @order
     redirect_to orders_path
   end
 

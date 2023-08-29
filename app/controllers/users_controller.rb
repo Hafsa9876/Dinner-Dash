@@ -17,11 +17,28 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
+    authorize @user
   end
 
   def index
     @users = User.all
+    authorize @users
+  end
+
+  def edit
+   @user = User.find(params[:id])
+   authorize @user
+  end
+
+  def update
+    @user = User.find(params[:id])
+    authorize @user
+    if @user.update(user_params)
+      redirect_to @user, notice: "User was successfully updated."
+    else
+      render :edit
+    end
   end
 
   private
