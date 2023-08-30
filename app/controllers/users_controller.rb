@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -7,12 +8,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id]=@user.id
+      session[:user_id] = @user.id
       flash[:success] = "Welcome #{user_params[:full_name]} to Dinner Dash!"
       redirect_to root_path
     else
-      flash[:error] = "One or more required fields are missing"
-      render "new"
+      flash[:error] = 'One or more required fields are missing'
+      render 'new'
     end
   end
 
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     if @user.update(user_params)
-      redirect_to @user, notice: "User was successfully updated."
+      redirect_to @user, notice: 'User was successfully updated.'
     else
       render :edit
     end
@@ -46,5 +47,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:full_name, :email, :password, :password_confirmation, :display_name)
   end
-
 end

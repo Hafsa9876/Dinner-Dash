@@ -1,6 +1,6 @@
-module ApplicationHelper
-  #helper_method :current_user, :logged_in?
+# frozen_string_literal: true
 
+module ApplicationHelper
   def logged_in?
     !!session[:user_id]
   end
@@ -15,12 +15,11 @@ module ApplicationHelper
   end
 
   def require_login
-     if logged_in?
+    if logged_in?
       session[:user_id]
-     else
-      flash[:error] = "You must be logged in to access this page."
+    else
+      flash[:error] = 'You must be logged in to access this page.'
       redirect_to login_path
     end
   end
-
 end

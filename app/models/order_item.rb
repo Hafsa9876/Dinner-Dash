@@ -7,16 +7,12 @@ class OrderItem < ApplicationRecord
   before_create :set_default_quantity
 
   def total_price
-    self.quantity * self.item.price
+    quantity * item.price
   end
-  
+
   private
 
   def set_default_quantity
     self.quantity ||= 1
   end
-
-
 end
-
-

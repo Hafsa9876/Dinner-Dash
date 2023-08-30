@@ -1,17 +1,22 @@
-
-<%= render "shared/header" %>
-<h2>Order Details</h2>
-<p>Order ID: <%= @order.id %></p>
-<p>User Name: <%= @order.user.full_name %></p>
-<p>User Name: <%= @order.user.email %></p>
-<p>Status: <%= @order.status %></p>
-<p>Date and Time : <%= @order.created_at.strftime('%B %e, %Y %H:%M:%S') %></p>
-<ul>
-  <% @order.order_items.each do |item| %>
-    <li><%= link_to item.item.title, item_path(item) %> ---- Quantity: <%= item.quantity %></li>
-  <% end %>
-</ul>
-    <%if current_user.admin?%>
+<div class="col-md-12">
+  <h1 class="coffee_taital">Order Details</h1>
+  <div class="bulit_icon"><%=image_tag "bulit-icon.png"%></div>
+</div>
+<br>
+<div class="item_section layout_padding">
+  <div class="container sh-container" style="text-align: center; align-items: center;">
+    <p>Order ID: <%= @order.id %></p>
+    <p>User Name: <%= @order.user.full_name %></p>
+    <p>User Name: <%= @order.user.email %></p>
+    <p>Status: <%= @order.status %></p>
+    <p>Date and Time : <%= @order.created_at.strftime('%B %e, %Y %H:%M:%S') %></p>
+    <ul>
+      <% @order.order_items.each do |item| %>
+        <li><%= link_to item.item.title, item_path(item) %> ---- Quantity: <%= item.quantity %></li>
+      <% end %>
+    </ul>
+    <div class="container" style="display: flex;">
+    <% if current_user.admin? %>
       <form action="<%= edit_order_path(@order) %>" method="get" class="mr-auto search-form">
         <button type="submit" class="search-button">Change Status</button>
       </form>
@@ -21,4 +26,7 @@
         <%= csrf_meta_tags %>
         <button type="submit" class="search-button">Delete Order</button>
       </form>
-    <%end%>
+    <% end %>
+    </div>
+  </div>
+</div>

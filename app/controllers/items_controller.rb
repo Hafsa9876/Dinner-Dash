@@ -1,5 +1,5 @@
-
 # frozen_string_literal: true
+
 class ItemsController < ApplicationController
   def index
     @items = Item.all
@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to item_path(@item), notice: 'Item created successfully.'
     else
-      render :new , notice: 'Not created.'
+      render :new, notice: 'Not created.'
     end
   end
 
@@ -49,6 +49,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:title, :description, :price, :photo, category_ids: [])
   end

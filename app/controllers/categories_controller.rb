@@ -1,9 +1,8 @@
 # frozen_string_literal: true
+
 class CategoriesController < ApplicationController
   def index
-    if current_user.admin?
-       @categories = Category.all
-    end
+    @categories = Category.all if current_user.admin?
     authorize @categories
   end
 
