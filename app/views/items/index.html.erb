@@ -22,7 +22,7 @@
                   </a>
                   <h3 class="types_text"><%= item.title %></h3>
                   <p class="looking_text"><%= item.description %></p>
-                  <div class="read_bt">
+                  <div class="read_bt" style="margin-bottom: 20px;">
                     <%= button_to "Add To Cart", order_items_path(item_id: item.id), method: :post, class: "add-to-cart-button" %>
                   </div>
                </div>
@@ -31,4 +31,5 @@
       </div>
    </div>
 </div>
+
 

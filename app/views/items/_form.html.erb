@@ -1,24 +1,38 @@
 <!-- app/views/items/_form.html.erb -->
-<%= form_for(item) do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :title %>
+<div class="login_container" style="color:black">
+  <div class="screen">
+    <div class="screen__content">
+      <%= form_for(item) do |f| %>
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <%= f.text_field :title, class: "login__input", placeholder: "Item Name" %>
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-lock"></i>
+          <%= f.text_area :description, class: "login__input", placeholder: "Description" %>
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-lock"></i>
+          <%= f.number_field :price, class: "login__input", placeholder: "Price" %>
+        </div>
+         <div class="login__field">
+          <i class="login__icon fas fa-lock"></i>
+          <%= f.file_field :photo, placeholder: "Add Photo" %>
+        </div>
+         <div class="login__field">
+          <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+        </div>
+        <button class="button login__submit" type="submit">
+          <span class="button__text">Create</span>
+          <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+      <% end %>
+    </div>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
   </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div>
-    <%= f.label :price %>
-    <%= f.number_field :price %>
-  </div>
-  <div>
-    <%= f.label :photo %>
-    <%= f.file_field :photo %>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
-  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
-  <%= f.submit %>
-<% end %>
+</div>

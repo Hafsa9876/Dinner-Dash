@@ -1,13 +1,24 @@
-<h2>New Category</h2>
-
-<%= form_with(model: @category, url: categories_path) do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+<!-- app/views/items/_form.html.erb -->
+<br>
+<div class="login_container" style="color:black">
+  <div class="screen">
+    <div class="screen__content">
+      <%= form_for(@category) do |f| %>
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <%= f.text_field :name, class: "login__input", placeholder: "Category Name" %>
+        </div>
+        <button class="button login__submit" type="submit">
+          <span class="button__text">Create</span>
+          <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+      <% end %>
+    </div>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
   </div>
-  <div class="actions">
-    <%= form.submit 'Create Category' %>
-  </div>
-<% end %>
-
-<%= link_to 'Back', categories_path %>
+</div>

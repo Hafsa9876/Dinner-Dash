@@ -26,9 +26,21 @@
           <p class="item_text"><p><%= @item.description %></p>
           </div>
  </div>
- <div class="read_bt">
-   <%= button_to "Add To Cart", order_items_path(item_id: @item.id), method: :post, class: "add-to-cart-button" %>
-   </div>
+ <div class="button-container">
+  <div class="read_bt">
+    <%= button_to "Add To Cart", order_items_path(item_id: @item.id), method: :post, class: "add-to-cart-button" %>
+  </div>
+   <% if session[:user_id] %>
+      <%if current_user.admin?%>
+        <div class="read_bt">
+        <%= button_to "Delete Item", item_path(@item), method: :delete, class: "add-to-cart-button" %>
+      </div>
+      <div class="read_bt">
+        <%= button_to "Edit Item", edit_item_path(@item), method: :get, class: "add-to-cart-button" %>
+      </div>
+    <%end%>
+  <%end%>
+ </div>
 
 </div>
 

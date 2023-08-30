@@ -1,5 +1,42 @@
 <!-- app/views/users/show.html.erb -->
 <%= render "shared/header" %>
+<%if @user.admin?%>
+<div class="col-md-12">
+        <h1 class="coffee_taital"><%= @user.full_name %></h1>
+        <div class="bulit_icon"><%=image_tag "bulit-icon.png"%></div>
+</div>
+<br>
+<ul class="responsive-table">
+    <li class="table-header">
+        <div class="col col-1"></div>
+    </li>
+      <a class="table-link" href="<%= users_path %>">
+        <li class="table-row">
+          <div class="col col-1" >See User</div>
+        </li>
+      </a>
+      <a class="table-link" href="<%=categories_path %>">
+         <li class="table-row">
+           <div class="col col-1" >See Categories</div>
+        </li>
+      </a>
+      <a class="table-link" href="<%= new_item_path %>">
+         <li class="table-row">
+          <div class="col col-1" >Create Item</div>
+         <li>
+      </a>
+     <a class="table-link" href="<%= new_category_path %>">
+        <li class="table-row">
+          <div class="col col-1" >Create Category</div>
+        </li>
+      </a>
+      <a class="table-link" href="<%= orders_path %>">
+         <li class="table-row">
+          <div class="col col-1" >See Orders</div>
+        </li>
+      </a>
+  </ul>
+<% else %>
 <div class="item_section layout_padding">
 <div class="container sh-container " >
     <div class="row">
@@ -8,8 +45,6 @@
         <div class="bulit_icon"><%=image_tag "bulit-icon.png"%></div>
       </div>
     </div>
-
-
 <div class="item_taital_main">
         <div class="item_right">
           <h3 class="moark_text text-center"><%= @user.display_name %></h3>
@@ -22,6 +57,7 @@
 
 </div>
 
+<%end%>
 
 
 
