@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# ApplicationController is the base controller for your application.
+# It provides common functionality and configuration for all controllers.
 class ApplicationController < ActionController::Base
   include ApplicationHelper
   include Pundit::Authorization
@@ -11,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def current_cart
     if session[:cart_id]
-      cart = Cart.find_by(:id => session[:cart_id])
+      cart = Cart.find_by(id: session[:cart_id])
       if cart.present?
         @current_cart = cart
       else
@@ -19,10 +21,10 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    if session[:cart_id].nil?
-      @current_cart = Cart.create
-      session[:cart_id] = @current_cart.id
-    end
+    return unless session[:cart_id].nil?
+
+    @current_cart = Cart.create
+    session[:cart_id] = @current_cart.id
   end
 
   def set_categories

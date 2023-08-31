@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This is Controller
 class CartsController < ApplicationController
   def show
     @cart = @current_cart
@@ -8,7 +9,6 @@ class CartsController < ApplicationController
   def destroy
     @cart = @current_cart
     @cart.destroy
-    session[:user_id] = nil
     session[:cart_id] = nil
     redirect_to root_path
   end

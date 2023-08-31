@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This is Documentation
 class OrderPolicy < ApplicationPolicy
   def index?
     user.admin? || (user.customer? && record.user == user)

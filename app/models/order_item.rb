@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This is Documentation
 class OrderItem < ApplicationRecord
   belongs_to :order, optional: true
   belongs_to :item

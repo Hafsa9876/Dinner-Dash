@@ -1,5 +1,4 @@
 <!-- app/views/users/show.html.erb -->
-<%= render "shared/header" %>
 <%if @user.admin?%>
 <div class="col-md-12">
         <h1 class="coffee_taital"><%= @user.full_name %></h1>
@@ -37,6 +36,7 @@
       </a>
   </ul>
 <% else %>
+<%= render "shared/header" %>
 <div class="item_section layout_padding">
 <div class="container sh-container " >
     <div class="row">

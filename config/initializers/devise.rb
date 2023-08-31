@@ -14,10 +14,9 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'eb3495ebf085308c9cadaa679f90088a6af5443ad8b38e5e137e7a9a07c5f67c5c9f7278885638cdd188c36e551b72808b85c3f8b30646ab7c701bd2e6d70a7f'
+  # config.secret_key = 'a9cfd2cdc13b0543cd4f8b757e438dd267f1f64859d385979f3bb6700b2faf2c12b52c599748bb75eec927d25a9ac5f
+  # 999fb53aefc567799c3acfc3ee4f6a0c2'
 
-
-  config.navigational_formats = ['*/*', :html, :turbo_stream]
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -72,7 +71,7 @@ Devise.setup do |config|
   # given strategies, for example, `config.params_authenticatable = [:database]` will
   # enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
-
+  config.authentication_keys = [:email]
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
   # given strategies, for example, `config.http_authenticatable = [:database]` will
@@ -128,7 +127,8 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '70a18aea7e2c74374d663dd61ffea84377cbc248129488fa2736d9b1f510e036bd453409a8c82dbb614b7ec64fcea68d542c8b12494bc94d758811ba2eab93bc'
+  # config.pepper = 'e00665b75d22f09d286a4e422cc0f00bf5deb926f5680533842bf0d19e17b56b026a6b74e58fb87d2dc864b345e10803bc0
+  # cd42e08acdda8bfbdcfbe65d3053e'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false

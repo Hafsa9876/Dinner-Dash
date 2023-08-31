@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This is Controller
 class OrdersController < ApplicationController
   before_action :require_login, only: [:new, :create]
   skip_before_action :verify_authenticity_token
@@ -41,20 +42,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new
-    @order.user_id = require_login
-    @order.status = "ordered"
-    @current_cart.order_items.each do |item|
-      @order.order_items << item
-      item.cart_id = nil
-    end
-    if  @order.save
-      flash[:true_message]='Created Successfully'
-      Cart.destroy(session[:cart_id])
-      session[:cart_id] = nil
-      redirect_to order_path(@order)
+    @order = build_order
+    assign_order_items_to_order
+    if save_order
+      handle_successful_order_creation
     else
-      flash[:false_message]='Error Occured ! Not Created'
+      handle_failed_order_creation
     end
   end
 
@@ -80,5 +73,35 @@ class OrdersController < ApplicationController
 
   def set_orders
     @orders = Order.where(user: current_user)
+  end
+
+  def build_order
+    Order.new(user_id: current_user.id, status: 'ordered')
+  end
+
+  def assign_order_items_to_order
+    @current_cart.order_items.each do |item|
+      @order.order_items << item
+      item.cart_id = nil
+    end
+  end
+
+  def save_order
+    @order.save
+  end
+
+  def handle_successful_order_creation
+    flash[:true_message] = 'Created Successfully'
+    clear_cart_and_session
+    redirect_to order_path(@order)
+  end
+
+  def handle_failed_order_creation
+    flash[:false_message] = 'Error Occurred! Not Created'
+  end
+
+  def clear_cart_and_session
+    Cart.destroy(session[:cart_id])
+    session[:cart_id] = nil
   end
 end

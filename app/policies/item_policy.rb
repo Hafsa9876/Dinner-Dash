@@ -1,5 +1,7 @@
-class ItemPolicy < ApplicationPolicy
+# frozen_string_literal: true
 
+# This is Documentation
+class ItemPolicy < ApplicationPolicy
   def edit
     user.admin?
   end
@@ -15,7 +17,6 @@ class ItemPolicy < ApplicationPolicy
   def new?
     user.admin?
   end
-
 
   def create?
     user.admin?

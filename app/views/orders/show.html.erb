@@ -12,7 +12,7 @@
     <p>Date and Time : <%= @order.created_at.strftime('%B %e, %Y %H:%M:%S') %></p>
     <ul>
       <% @order.order_items.each do |item| %>
-        <li><%= link_to item.item.title, item_path(item) %> ---- Quantity: <%= item.quantity %></li>
+        <li><%= link_to item.item.title, item_path(item.item.id) %> ---- Quantity: <%= item.quantity %></li>
       <% end %>
     </ul>
     <div class="container" style="display: flex;">

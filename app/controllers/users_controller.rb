@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :set_user, only: [:index]
   def new
     @user = User.new
   end
@@ -28,8 +29,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-   @user = User.find(params[:id])
-   authorize @user
+    @user = User.find(params[:id])
+    authorize @user
   end
 
   def update
@@ -45,6 +46,10 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:full_name, :email, :password, :password_confirmation, :display_name)
+    params.require(:user).permit(:full_name, :email, :password, :password_confirmation)
+  end
+
+  def set_user
+    @user = current_user
   end
 end

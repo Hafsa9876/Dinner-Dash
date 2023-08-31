@@ -22,11 +22,13 @@
         <%= hidden_field_tag :_method, :patch %>
         <select name="status" class="search-select">
           <option value="" disabled selected><%= @order.status %></option>
-          <% if @order.status == "ordered" || @order.status == "paid" %>
+          <% if @order.status == "ordered" %>
             <option value="cancelled">Cancelled</option>
+            <option value="paid">Paid</option>
           <% elsif @order.status == "ordered" %>
             <option value="paid">Paid</option>
           <% elsif @order.status == "paid" %>
+            <option value="cancelled">Cancelled</option>
             <option value="completed">Completed</option>
           <% end %>
         </select>

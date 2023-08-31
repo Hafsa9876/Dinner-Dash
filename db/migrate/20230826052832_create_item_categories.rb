@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This is Documentation
 class CreateItemCategories < ActiveRecord::Migration[5.2]
   def change
     create_table :item_categories do |t|
