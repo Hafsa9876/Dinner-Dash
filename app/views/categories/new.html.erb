@@ -1,26 +1,12 @@
 <!-- app/views/items/_form.html.erb -->
+<br>
 <div class="login_container" style="color:black">
   <div class="screen">
     <div class="screen__content">
-      <%= form_for(item) do |f| %>
+      <%= form_for(@category) do |f| %>
         <div class="login__field">
           <i class="login__icon fas fa-user"></i>
-          <%= f.text_field :title, class: "login__input", placeholder: "Item Name" %>
-        </div>
-        <div class="login__field">
-          <i class="login__icon fas fa-lock"></i>
-          <%= f.text_area :description, class: "login__input", placeholder: "Description" %>
-        </div>
-        <div class="login__field">
-          <i class="login__icon fas fa-lock"></i>
-          <%= f.number_field :price, class: "login__input", placeholder: "Price" %>
-        </div>
-         <div class="login__field">
-          <i class="login__icon fas fa-lock"></i>
-          <%= f.file_field :photo, placeholder: "Add Photo" %>
-        </div>
-         <div class="login__field">
-          <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+          <%= f.text_field :name, class: "login__input", placeholder: "Category Name" %>
         </div>
         <button class="button login__submit" type="submit">
           <span class="button__text">Create</span>

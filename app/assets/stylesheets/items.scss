@@ -140,6 +140,15 @@
     min-height: 20vh;
 }
 
+.coffee_taital1 {
+  width: 100%;
+  float: left;
+  font-size: 40px;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+  padding-bottom: 0px;
+}
 .coffee_taital {
   width: 100%;
   float: left;
@@ -233,4 +242,40 @@
   width: 80%;
   float: left;
   padding-top: 20px;
+}
+
+/* Add these styles to your CSS */
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-select,
+.search-button {
+  background-color: white;
+  border: 1px solid palevioletred;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: palevioletred;
+  height: max-content;
+}
+
+.search-select {
+  margin-right: 10px;
+}
+
+.search-button {
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: pink;
+  color: white;
+  border-color: white;
+}
+
+.button-container {
+  display: flex;
 }

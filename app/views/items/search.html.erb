@@ -1,13 +1,4 @@
-<!-- app/views/items/index.html.erb -->
-<%= render "shared/header" %>
-<div class="coffee_section layout_padding">
-   <div class="main_container">
-      <div class="row">
-         <h1 class="coffee_taital">OUR Menue OFFER</h1>
-         <div class="bulit_icon"><%= image_tag "bulit-icon.png" %></div>
-      </div>
-   </div>
-
+  <%= render "shared/header" %>
    <div class="container">
       <div class="row ">
          <% @items.each do |item| %>
@@ -22,7 +13,7 @@
                   </a>
                   <h3 class="types_text"><%= item.title %></h3>
                   <p class="looking_text"><%= item.description %></p>
-                  <div class="read_bt" style="margin-bottom: 20px;">
+                  <div class="read_bt">
                     <%= button_to "Add To Cart", order_items_path(item_id: item.id), method: :post, class: "add-to-cart-button" %>
                   </div>
                </div>
@@ -30,6 +21,3 @@
          <% end %>
       </div>
    </div>
-</div>
-
-
