@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
+# This is Documentation
 class UserPolicy < ApplicationPolicy
   def index?
-    user.admin?
+    user.present? && user.admin?
   end
 
   def update?

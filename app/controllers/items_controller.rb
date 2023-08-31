@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This is Controller
 class ItemsController < ApplicationController
   def index
     @items = Item.all

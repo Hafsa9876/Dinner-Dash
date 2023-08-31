@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This is Controller
 class CategoriesController < ApplicationController
   def index
     @categories = Category.all if current_user.admin?

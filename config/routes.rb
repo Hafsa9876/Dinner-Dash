@@ -1,6 +1,7 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  get 'carts/show'
+Rails.application.routes.draw do
+  devise_for :users
   resources :items do
     collection do
       get 'search'
@@ -16,27 +17,13 @@ Rails.application.routes.draw do
   resources :items
   resources :categories
   resources :orders
-
-
-
   resources :users
-  get '/login', to: 'sessions#login'
-  post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
-  get '/logout', to: 'sessions#destroy'
 
-
-  get 'carts/:id', to: "carts#show", as: "cart"
-  delete 'carts/:id', to: "carts#destroy"
-  post 'order_items/add_to_cart/:id', to: 'order_items#add_to_cart', as: 'add_to_cart'
-
-  get 'order_items', to: 'order_items#index'
-  post 'order_items/:id/add', to: "order_items#add_quantity", as: "order_items_add"
-  post 'order_items/:id/reduce', to: "order_items#reduce_quantity", as: "order_items_reduce"
-  post 'order_items', to: "order_items#create"
-  get 'order_items/:id', to: "order_items#show", as: "order_item"
-  delete 'order_items/:id', to: "order_items#destroy"
+  resources :carts, only: [:show, :destroy]
+  resources :order_items, only: [:index, :create, :show, :destroy] do
+    post :add, on: :member, action: :add_quantity, as: :order_items_add
+    post :reduce, on: :member, action: :reduce_quantity, as: :reduce_quantity
+  end
 
   root 'items#index'
-
 end

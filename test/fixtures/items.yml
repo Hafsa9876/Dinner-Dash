@@ -3,11 +3,11 @@
 one:
   title: MyString
   description: MyText
-  price: 9.99
+  price: 
   photo: 
 
 two:
   title: MyString
   description: MyText
-  price: 9.99
+  price: 
   photo: 

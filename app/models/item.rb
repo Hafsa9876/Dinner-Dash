@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This is Documentation
 class Item < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :price, presence: true, numericality: { greater_than: 0, message: 'must be greater than zero' }
